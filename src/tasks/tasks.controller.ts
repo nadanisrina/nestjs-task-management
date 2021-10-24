@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { TasksService } from './tasks.service';
+import { TaskModel } from './tasks.model';
 
 @Controller('tasks')
 export class TasksController {
@@ -8,8 +9,7 @@ export class TasksController {
   } // service injected and become class property
 
   @Get()
-  getAllTasks() {
-    console.log('tasks controller');
+  getAllTasks(): TaskModel[] {
     return this.tasksService.getAllTasks();
   }
 }
